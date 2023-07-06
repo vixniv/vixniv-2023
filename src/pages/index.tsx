@@ -2,6 +2,7 @@ import { signIn, signOut, useSession } from "next-auth/react";
 import Head from "next/head";
 import Link from "next/link";
 import { api } from "@/utils/api";
+import Header from "@/components/Header";
 
 export default function Home() {
   // const hello = api.example.hello.useQuery({ text: "from tRPC" });
@@ -13,7 +14,9 @@ export default function Home() {
         <meta name="description" content="Vixniv" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main></main>
+      <main>
+        <Header />
+      </main>
     </>
   );
 }
