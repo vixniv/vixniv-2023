@@ -1,4 +1,5 @@
 import { useChat } from "@/utils/ContextProvider";
+import dayjs from "dayjs";
 import React from "react";
 
 const StartButton = () => {
@@ -9,12 +10,15 @@ const StartButton = () => {
       return [
         ...prev,
         {
-          date: "2021-10-05T02:00:00.000Z",
-          chat: {
-            timestamp: Date.now(),
-            type: "user",
-            message: "/start",
-          },
+          date: dayjs().format("DD MMMM YYYY"),
+          chat: [
+            {
+              timestamp: Date.now(),
+              type: "text",
+              side: "user",
+              message: "/start",
+            },
+          ],
         },
       ];
     });
@@ -23,7 +27,7 @@ const StartButton = () => {
   return (
     <div className="mx-auto w-full max-w-3xl p-2">
       <button
-        className="w-full rounded-full bg-vblue py-[10px] text-white"
+        className="w-full rounded-[20px] bg-vblue py-[10px] text-white hover:bg-vbluehover"
         onClick={handleStart}
       >
         Start

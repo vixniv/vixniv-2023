@@ -5,8 +5,10 @@ import { api } from "@/utils/api";
 import Header from "@/components/Header";
 import StartButton from "@/components/StartButton";
 import TextBubble from "@/components/TextBubble";
-import NoMessages from "@/components/Nomessages";
+import NoMessages from "@/components/NoMessages";
 import { useChat } from "@/utils/ContextProvider";
+import GroupBubble from "@/components/GroupBubble";
+import InputField from "@/components/InputField";
 
 export default function Home() {
   // const hello = api.example.hello.useQuery({ text: "from tRPC" });
@@ -26,11 +28,12 @@ export default function Home() {
             {chat.length === 0 ? (
               <NoMessages />
             ) : (
-              chat.map((item) => <TextBubble {...item} />)
+              chat.map((group) => <GroupBubble {...group} />)
             )}
           </div>
         </div>
         <StartButton />
+        <InputField />
       </main>
     </>
   );

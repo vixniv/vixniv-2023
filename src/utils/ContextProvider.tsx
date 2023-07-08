@@ -1,13 +1,13 @@
 import React, { createContext, useContext, useState } from "react";
-import { IChat } from "@/utils/interfaces";
+import { IChatGroup } from "@/utils/interfaces";
 
 const chatContext = createContext<{
-  chat: IChat[];
-  setChat: React.Dispatch<React.SetStateAction<IChat[]>>;
+  chat: IChatGroup[];
+  setChat: React.Dispatch<React.SetStateAction<IChatGroup[]>>;
 }>({ chat: [], setChat: () => [] });
 
 const ContextProvider = ({ children }: { children: React.ReactNode }) => {
-  const [chat, setChat] = useState<IChat[]>([]);
+  const [chat, setChat] = useState<IChatGroup[]>([]);
 
   return (
     <chatContext.Provider value={{ chat, setChat }}>
