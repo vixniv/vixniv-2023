@@ -4,6 +4,7 @@ import { type AppType } from "next/app";
 import { api } from "@/utils/api";
 import "@/styles/globals.css";
 import { Inter } from "next/font/google";
+import ContextProvider from "@/utils/ContextProvider";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -15,11 +16,13 @@ const MyApp: AppType<{ session: Session | null }> = ({
   pageProps: { session, ...pageProps },
 }) => {
   return (
-    <main className={`${inter.variable} font-sans`}>
+    <div className={`${inter.variable} h-full font-sans`}>
       <SessionProvider session={session}>
-        <Component {...pageProps} />
+        <ContextProvider>
+          <Component {...pageProps} />
+        </ContextProvider>
       </SessionProvider>
-    </main>
+    </div>
   );
 };
 

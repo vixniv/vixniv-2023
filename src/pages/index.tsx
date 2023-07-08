@@ -3,9 +3,14 @@ import Head from "next/head";
 import Link from "next/link";
 import { api } from "@/utils/api";
 import Header from "@/components/Header";
+import StartButton from "@/components/StartButton";
+import TextBubble from "@/components/TextBubble";
+import NoMessages from "@/components/Nomessages";
+import { useChat } from "@/utils/ContextProvider";
 
 export default function Home() {
   // const hello = api.example.hello.useQuery({ text: "from tRPC" });
+  const { chat } = useChat();
 
   return (
     <>
@@ -14,8 +19,18 @@ export default function Home() {
         <meta name="description" content="Vixniv" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main>
+      <main className="m-auto flex h-full flex-col justify-between ">
         <Header />
+        <div className="h-full overflow-auto">
+          <div className="mx-auto h-full max-w-3xl px-3 pt-[14px]">
+            {chat.length === 0 ? (
+              <NoMessages />
+            ) : (
+              chat.map((item) => <TextBubble {...item} />)
+            )}
+          </div>
+        </div>
+        <StartButton />
       </main>
     </>
   );

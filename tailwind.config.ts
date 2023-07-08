@@ -8,6 +8,11 @@ export default {
       fontFamily: {
         sans: ["var(--font-inter)", ...defaultTheme.fontFamily.sans],
       },
+      colors: {
+        vblue: "#007AFF",
+        vbackground: "#E5E5EA",
+        vtext: "#82828D",
+      },
     },
   },
   plugins: [],
