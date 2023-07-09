@@ -4,15 +4,27 @@ import Link from "next/link";
 import { api } from "@/utils/api";
 import Header from "@/components/Header";
 import StartButton from "@/components/StartButton";
-import TextBubble from "@/components/TextBubble";
 import NoMessages from "@/components/NoMessages";
 import { useChat } from "@/utils/ContextProvider";
 import GroupBubble from "@/components/GroupBubble";
 import InputField from "@/components/InputField";
+import { useRef, useEffect } from "react";
 
 export default function Home() {
   // const hello = api.example.hello.useQuery({ text: "from tRPC" });
   const { chat } = useChat();
+  const chatDom = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (chatDom.current) {
+      chatDom.current.scrollTo({
+        top: chatDom.current.scrollHeight,
+        left: 0,
+        behavior: "smooth",
+      });
+      // chatDom.current.scrollTop = chatDom.current.scrollHeight;
+    }
+  }, [chat]);
 
   return (
     <>
@@ -23,17 +35,16 @@ export default function Home() {
       </Head>
       <main className="m-auto flex h-full flex-col justify-between ">
         <Header />
-        <div className="h-full overflow-auto">
+        <div className="h-full overflow-auto" ref={chatDom}>
           <div className="mx-auto h-full max-w-3xl px-3 pt-[14px]">
             {chat.length === 0 ? (
               <NoMessages />
             ) : (
-              chat.map((group) => <GroupBubble {...group} />)
+              chat.map((group) => <GroupBubble key={group.date} {...group} />)
             )}
           </div>
         </div>
-        <StartButton />
-        <InputField />
+        {chat.length > 0 ? <InputField chatDom={chatDom} /> : <StartButton />}
       </main>
     </>
   );

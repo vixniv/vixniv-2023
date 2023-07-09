@@ -8,7 +8,7 @@ const GroupBubble = ({ date, chat }: IChatGroup) => {
     <div>
       <DateBubble date={date} />
       {chat!.map((chat) => (
-        <TextBubble {...chat} />
+        <TextBubble key={chat.timestamp} {...chat} />
       ))}
     </div>
   );

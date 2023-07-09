@@ -1,29 +1,30 @@
 import { IChat } from "@/utils/interfaces";
+import dayjs from "dayjs";
 import React from "react";
 
-const TextBubble = ({ message, side }: IChat) => {
+const TextBubble = ({ message, side, timestamp }: IChat) => {
+  const formattedTime = dayjs(timestamp).format("HH:mm");
+
   return (
-    <>
+    <div
+      className={`flex w-10/12 ${
+        side === "user" ? "ml-auto justify-end" : "mr-auto justify-start"
+      }`}
+    >
       <div
-        className={`flex w-10/12 ${
-          side === "user" ? "ml-auto justify-end" : "mr-auto justify-start"
+        className={`relative mb-[14px] inline-block rounded-[20px] px-[14px] py-[10px] ${
+          side === "user" ? "bg-vblue text-white" : "bg-vbackground text-black"
         }`}
       >
-        <div
-          className={`relative mb-[14px] inline-block rounded-[20px] px-[14px] py-[10px] ${
-            side === "user"
-              ? "bg-vblue text-white"
-              : "bg-vbackground text-black"
-          }`}
-        >
-          <span>Hi Judy, I'm on my way! What's the address? </span>
-          <span className="invisible pl-1 text-xs text-vbackground">23:12</span>
-          <div className="absolute bottom-[7px] right-[14px] text-xs text-vbackground">
-            23:12
-          </div>
+        <span className="whitespace-pre-wrap">{message}</span>
+        <span className="invisible pl-2 text-xs text-vbackground">
+          {formattedTime}
+        </span>
+        <div className="absolute bottom-[7px] right-[14px] text-xs text-vbackground">
+          {formattedTime}
         </div>
       </div>
-    </>
+    </div>
   );
 };
 

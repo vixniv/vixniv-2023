@@ -12,6 +12,7 @@ export default {
         vblue: "#007AFF",
         vbluehover: "#0066D6",
         vbackground: "#E5E5EA",
+        vbackgroundhover: "#D7D7DE",
         vtext: "#82828D",
       },
     },
