@@ -1,27 +1,14 @@
 import { useChat } from "@/utils/ContextProvider";
-import dayjs from "dayjs";
+import { botResponse } from "@/utils/botResponse";
+import { pushMessage } from "@/utils/pushMessage";
 import React from "react";
 
 const StartButton = () => {
   const { setChat } = useChat();
 
   const handleStart = () => {
-    setChat((prev) => {
-      return [
-        ...prev,
-        {
-          date: dayjs().format("DD MMMM YYYY"),
-          chat: [
-            {
-              timestamp: Date.now(),
-              type: "text",
-              side: "user",
-              message: "/start",
-            },
-          ],
-        },
-      ];
-    });
+    pushMessage(setChat, "/start", "user");
+    botResponse(setChat, "/start");
   };
 
   return (

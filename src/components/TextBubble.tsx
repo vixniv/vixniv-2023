@@ -20,7 +20,11 @@ const TextBubble = ({ message, side, timestamp }: IChat) => {
         <span className="invisible pl-2 text-xs text-vbackground">
           {formattedTime}
         </span>
-        <div className="absolute bottom-[7px] right-[14px] text-xs text-vbackground">
+        <div
+          className={`absolute bottom-[7px] right-[14px] text-xs ${
+            side === "user" ? "text-vbackground" : "text-vtext"
+          }`}
+        >
           {formattedTime}
         </div>
       </div>

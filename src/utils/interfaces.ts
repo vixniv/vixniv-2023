@@ -5,7 +5,7 @@ export interface IChatGroup {
 
 export interface IChat {
   timestamp: number;
-  type: string;
-  side: string;
+  type: string; // text or image
+  side: string; // user or bot
   message: string;
 }

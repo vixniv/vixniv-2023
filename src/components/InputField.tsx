@@ -1,15 +1,14 @@
 import React, { useRef, useState } from "react";
 import Arrow from "../../public/assets/arrow.svg";
 import { useChat } from "@/utils/ContextProvider";
-import dayjs from "dayjs";
+import { pushMessage } from "@/utils/pushMessage";
+import { botResponse } from "@/utils/botResponse";
 
 const InputField = ({
   chatDom,
 }: {
   chatDom: React.RefObject<HTMLDivElement>;
 }) => {
-  // const [textareaRows, setTextareaRows] = useState(1);
-  // const [linebreak, setLinebreak] = useState(1);
   const [message, setMessage] = useState("");
 
   const { setChat } = useChat();
@@ -18,9 +17,6 @@ const InputField = ({
   const handleTextAreaKeyDown = (
     e: React.KeyboardEvent<HTMLTextAreaElement>
   ) => {
-    // console.log((e.target as HTMLInputElement).value.split("\n").length);
-    // if (e.code === "Enter") setTextareaRows((prev) => prev + 1);
-
     if (e.code === "Enter" && !e.shiftKey) {
       e.preventDefault();
       handleSubmit();
@@ -33,61 +29,19 @@ const InputField = ({
     e.target.scrollTop = e.target.scrollHeight; // keep scroll to bottom
 
     setMessage(e.target.value);
-
-    // console.log(e.target.value.split("\n").length);
-    // const currentLinebreak = e.target.value.split("\n").length;
-    // if (currentLinebreak !== linebreak) {
-    //   setLinebreak(currentLinebreak);
-    // }
   };
 
   const handleSubmit = () => {
     if (message) {
-      setChat((prev) => {
-        const lastGroup = prev[prev.length - 1];
-        const recentDate = dayjs().format("DD MMMM YYYY");
-
-        // if last group is today, append to last group
-        if (lastGroup && lastGroup.date === recentDate) {
-          return [
-            ...prev.slice(0, prev.length - 1),
-            {
-              ...lastGroup,
-              chat: [
-                ...(lastGroup.chat || []),
-                {
-                  timestamp: Date.now(),
-                  type: "text",
-                  side: "user",
-                  message: message,
-                },
-              ],
-            },
-          ];
-        }
-
-        // return new group
-        return [
-          ...prev,
-          {
-            date: dayjs().format("DD MMMM YYYY"),
-            chat: [
-              {
-                timestamp: Date.now(),
-                type: "text",
-                side: "user",
-                message: message,
-              },
-            ],
-          },
-        ];
-      });
+      pushMessage(setChat, message, "user");
 
       setMessage("");
       if (textAreaDom.current) {
         textAreaDom.current.style.height = "44px";
         textAreaDom.current.focus(); // this make page scroll on mobile when keyboard open, need solution!
       }
+
+      botResponse(setChat, message);
     }
   };
 
