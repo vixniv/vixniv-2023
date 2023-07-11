@@ -19,15 +19,18 @@
     "@trpc/react-query": "^10.26.0",
     "@trpc/server": "^10.26.0",
     "dayjs": "^1.11.9",
+    "dompurify": "^2.4.6",
     "next": "^13.4.2",
     "next-auth": "^4.22.1",
     "react": "18.2.0",
     "react-dom": "18.2.0",
+    "react-markdown": "^8.0.7",
     "superjson": "1.12.2",
     "zod": "^3.21.4"
   },
   "devDependencies": {
     "@svgr/webpack": "^8.0.1",
+    "@types/dompurify": "^3.0.2",
     "@types/eslint": "^8.37.0",
     "@types/node": "^18.16.0",
     "@types/prettier": "^2.7.2",

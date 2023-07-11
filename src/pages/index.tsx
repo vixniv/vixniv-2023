@@ -9,10 +9,12 @@ import { useChat } from "@/utils/ContextProvider";
 import GroupBubble from "@/components/GroupBubble";
 import InputField from "@/components/InputField";
 import { useRef, useEffect } from "react";
+import { pushMessage } from "@/utils/pushMessage";
+import { botResponse } from "@/utils/botResponse";
 
 export default function Home() {
   // const hello = api.example.hello.useQuery({ text: "from tRPC" });
-  const { chat } = useChat();
+  const { chat, setChat } = useChat();
   const chatDom = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -22,9 +24,40 @@ export default function Home() {
         left: 0,
         behavior: "smooth",
       });
-      // chatDom.current.scrollTop = chatDom.current.scrollHeight;
     }
   }, [chat]);
+
+  /* 
+    alternative solution of direct added event to markdown string because import issue (webpack not defined) 
+    _utils_pushMessage__WEBPACK_IMPORTED_MODULE_3__ 
+  */
+  // const clickedCommand = (e: MouseEvent) => {
+  //   const content = (e.target as HTMLElement).textContent;
+  //   // console.log((e.target as HTMLElement).textContent);
+  //   if (content && content[0] === "/" && /\/[a-zA-Z]+/g.test(content)) {
+  //     pushMessage(setChat, content, "user");
+  //     botResponse(setChat, content);
+  //   }
+  // };
+
+  // useEffect(() => {
+  //   window.addEventListener("click", clickedCommand);
+
+  //   return () => {
+  //     window.removeEventListener("click", clickedCommand);
+  //   };
+  // }, []);
+
+  useEffect(() => {
+    window.clickedCommand = (e: HTMLSpanElement) => {
+      console.log(e);
+      const content = e.textContent;
+      if (content && content[0] === "/" && /\/[a-zA-Z]+/g.test(content)) {
+        pushMessage(setChat, content, "user");
+        botResponse(setChat, content);
+      }
+    };
+  }, []);
 
   return (
     <>

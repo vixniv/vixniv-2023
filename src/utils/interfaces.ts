@@ -1,3 +1,9 @@
+declare global {
+  interface Window {
+    clickedCommand: (e: HTMLSpanElement) => void;
+  }
+}
+
 export interface IChatGroup {
   date: string;
   chat?: IChat[];

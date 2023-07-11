@@ -1,9 +1,35 @@
+import { useChat } from "@/utils/ContextProvider";
 import { IChat } from "@/utils/interfaces";
+import { markdownParser } from "@/utils/markdownParser";
+import { pushMessage } from "@/utils/pushMessage";
 import dayjs from "dayjs";
-import React from "react";
+import React, { useEffect } from "react";
+import { ReactMarkdown } from "react-markdown/lib/react-markdown";
 
 const TextBubble = ({ message, side, timestamp }: IChat) => {
+  const { setChat } = useChat();
+
   const formattedTime = dayjs(timestamp).format("HH:mm");
+
+  // react-markdown can't handle ol, so we have to parse it manually
+  // const components = {
+  //   ol({ children, ...props }: any) {
+  //     // console.log(children);
+  //     const list = children.filter((child: any) => child.type === "li");
+  //     const content = list
+  //       .map((item: any, index: number) => {
+  //         return (
+  //           index +
+  //           1 +
+  //           "." +
+  //           (item.props.children ? " " + item.props.children[0] : "")
+  //         );
+  //       })
+  //       .join("\n");
+  //     console.log(children);
+  //     return <p>{content}</p>;
+  //   },
+  // };
 
   return (
     <div
@@ -16,7 +42,20 @@ const TextBubble = ({ message, side, timestamp }: IChat) => {
           side === "user" ? "bg-vblue text-white" : "bg-vbackground text-black"
         }`}
       >
-        <span className="whitespace-pre-wrap">{message}</span>
+        <span
+          className="whitespace-pre-wrap"
+          dangerouslySetInnerHTML={{
+            __html: markdownParser(message, side),
+          }}
+        />
+        {/* <ReactMarkdown
+            components={components}
+            disallowedElements={["img"]}
+            unwrapDisallowed={true}
+          >
+            {message}
+          </ReactMarkdown> */}
+
         <span className="invisible pl-2 text-xs text-vbackground">
           {formattedTime}
         </span>
