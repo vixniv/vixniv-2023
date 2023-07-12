@@ -19,7 +19,10 @@ You can explore this web by typing or clicking the commands below:
 /chitchat - a little piece of my mind
 /stack - technology that I use/inspiration - web that I can see for my design reference
 /logs - progress of this web
-/credit - just look, but it doesn't really matter`,
+/credit - just look, but it doesn't really matter
+<b>bold></b> - just a test
+godly.website
+[title](https://www.example.com)`,
       ],
     },
   },
