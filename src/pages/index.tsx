@@ -69,7 +69,7 @@ export default function Home() {
       <main className="m-auto flex h-full flex-col justify-between ">
         <Header />
         <div className="h-full overflow-auto" ref={chatDom}>
-          <div className="mx-auto h-full max-w-3xl px-3 pt-[14px]">
+          <div className="mx-auto h-full max-w-3xl px-3 py-[14px]">
             {chat.length === 0 ? (
               <NoMessages />
             ) : (
