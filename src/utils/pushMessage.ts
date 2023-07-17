@@ -4,7 +4,8 @@ import { IChatGroup } from "./interfaces";
 export const pushMessage = (
   setChat: React.Dispatch<React.SetStateAction<IChatGroup[]>>,
   message: string,
-  side: string
+  side: string,
+  image = ""
 ) => {
   setChat((prevMessage) => {
     const lastGroup = prevMessage[prevMessage.length - 1];
@@ -23,6 +24,7 @@ export const pushMessage = (
               type: "text",
               side: side,
               message: message,
+              image,
             },
           ],
         },
@@ -40,6 +42,7 @@ export const pushMessage = (
             type: "text",
             side: side,
             message: message,
+            image,
           },
         ],
       },

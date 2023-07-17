@@ -1,16 +1,18 @@
-export const availableCommands = ["/start", "/help"];
-
-export const data = [
+export const commands = [
   {
     command: "/start",
-    response: {
-      message: [
-        `👋`,
-        `Hi, thank you for stopping by.
+    response: [
+      {
+        image: "",
+        message: `👋`,
+      },
+      {
+        image: "",
+        message: `Hi, thank you for stopping by.
 You can explore this web by typing or clicking the commands below:
-      
-/help - to see the available commands
 
+/help - to see the available commands
+        
 /about - things about me
 /work - some of the works I've done
 /contact - how to contact me
@@ -23,7 +25,7 @@ You can explore this web by typing or clicking the commands below:
 <b>bold></b> - just a test
 godly.website
 [title](https://www.example.com)`,
-      ],
-    },
+      },
+    ],
   },
 ];

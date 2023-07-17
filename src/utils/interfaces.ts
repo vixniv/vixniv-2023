@@ -14,4 +14,5 @@ export interface IChat {
   type: string; // text or image
   side: string; // user or bot
   message: string;
+  image?: string;
 }
