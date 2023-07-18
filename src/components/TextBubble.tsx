@@ -7,10 +7,12 @@ import Image from "next/image";
 import React, { useEffect } from "react";
 import { ReactMarkdown } from "react-markdown/lib/react-markdown";
 
-const TextBubble = ({ message, side, timestamp }: IChat) => {
+const TextBubble = ({ message, side, timestamp, image }: IChat) => {
   const { setChat } = useChat();
 
   const formattedTime = dayjs(timestamp).format("HH:mm");
+  const imageRatioinPercentage =
+    image?.ratio && (image.ratio * 100).toString() + "%";
 
   // react-markdown can't handle ol, so we have to parse it manually
   // const components = {
@@ -43,20 +45,43 @@ const TextBubble = ({ message, side, timestamp }: IChat) => {
         className={`mb-[14px] rounded-[20px] ${
           side === "user" ? "bg-vblue text-white" : "bg-vbackground text-black"
         }`}
+        style={{
+          ...(image?.url && {
+            flexBasis:
+              image.ratio > 1.25 && !message
+                ? `${425 / image.ratio}px`
+                : "340px",
+          }),
+        }}
       >
-        <div className="image-container relative w-full pt-[56.25%]">
-          <div className="absolute top-0 h-full w-full px-[5px] pt-[5px]">
-            {/* <div className="image-placeholder  h-full w-full ">
+        {image?.url && (
+          <div
+            className={`image-container relative w-full`}
+            style={{
+              paddingTop:
+                image.ratio > 1.25 && message
+                  ? "425px"
+                  : imageRatioinPercentage,
+            }}
+          >
+            <div
+              className={`absolute top-0 h-full w-full px-[5px] ${
+                message ? "pt-[5px]" : "py-[5px]"
+              }`}
+            >
+              {/* <div className="image-placeholder  h-full w-full ">
               <div className="h-full w-full rounded-[22px] bg-vbackgroundhover"></div>
-            </div> */}
-            <Image
-              src="/assets/sample.jpg"
-              alt="sample"
-              fill
-              className="!static rounded-[17px] bg-vbackgroundhover object-cover"
-            />
+              </div> */}
+              <Image
+                src={image.url}
+                alt="sample"
+                fill
+                className="!static rounded-[17px] bg-vbackgroundhover object-cover object-top"
+              />
+            </div>
           </div>
-        </div>
+        )}
+
         {/* <Image
           src="/assets/sample.jpg"
           alt="sample"
@@ -66,7 +91,7 @@ const TextBubble = ({ message, side, timestamp }: IChat) => {
           className="h-auto w-full max-w-full rounded-[17px] object-cover px-[5px] pt-[5px]"
         /> */}
 
-        <div className={`relative px-[14px] py-[10px]`}>
+        <div className={`relative ${message && "px-[14px] py-[10px]"}`}>
           <span
             className="whitespace-pre-wrap"
             dangerouslySetInnerHTML={{
@@ -81,13 +106,17 @@ const TextBubble = ({ message, side, timestamp }: IChat) => {
             {message}
           </ReactMarkdown> */}
 
-          <span className="invisible pl-2 text-xs text-vbackground">
-            {formattedTime}
-          </span>
+          {message && (
+            <span className="invisible pl-2 text-xs text-vbackground">
+              {formattedTime}
+            </span>
+          )}
           <div
-            className={`absolute bottom-[7px] right-[14px] text-xs ${
-              side === "user" ? "text-vbackground" : "text-vtext"
-            }`}
+            className={`absolute right-[14px] text-xs ${
+              message
+                ? "bottom-[7px]"
+                : "bottom-[10px] rounded-[20px] bg-vbackgroundhover/50 px-1 text-white backdrop-blur-sm"
+            } ${side === "user" ? "text-vbackground" : "text-vtext"}`}
           >
             {formattedTime}
           </div>

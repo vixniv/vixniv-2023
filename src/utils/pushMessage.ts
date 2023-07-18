@@ -5,7 +5,7 @@ export const pushMessage = (
   setChat: React.Dispatch<React.SetStateAction<IChatGroup[]>>,
   message: string,
   side: string,
-  image = ""
+  image = { url: "", width: 0, ratio: 0 }
 ) => {
   setChat((prevMessage) => {
     const lastGroup = prevMessage[prevMessage.length - 1];

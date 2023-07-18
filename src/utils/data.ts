@@ -3,11 +3,27 @@ export const commands = [
     command: "/start",
     response: [
       {
-        image: "",
+        image: {
+          url: "",
+          width: 0,
+          ratio: 0,
+        },
         message: `👋`,
       },
       {
-        image: "",
+        image: {
+          url: "/assets/1440x3400.png",
+          width: 1440,
+          ratio: 2.361111111111111,
+        },
+        message: ``,
+      },
+      {
+        image: {
+          url: "/assets/1440x3400.png",
+          width: 1440,
+          ratio: 2.361111111111111,
+        },
         message: `Hi, thank you for stopping by.
 You can explore this web by typing or clicking the commands below:
 

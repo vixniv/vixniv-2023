@@ -14,5 +14,9 @@ export interface IChat {
   type: string; // text or image
   side: string; // user or bot
   message: string;
-  image?: string;
+  image?: {
+    url: string;
+    width: number;
+    ratio: number;
+  };
 }
