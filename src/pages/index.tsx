@@ -5,13 +5,14 @@ import { api } from "@/utils/api";
 import Header from "@/components/Header";
 import StartButton from "@/components/StartButton";
 import NoMessages from "@/components/NoMessages";
-import { useChat, useCommandPosition } from "@/utils/ContextProvider";
+import { useChat, useCommandPosition, useModal } from "@/utils/ContextProvider";
 import GroupBubble from "@/components/GroupBubble";
 import InputField from "@/components/InputField";
 import { useRef, useEffect } from "react";
 import { pushMessage } from "@/utils/pushMessage";
 // import { botResponse } from "@/utils/botResponse";
 import useBot from "@/utils/useBot";
+import ImageModal from "@/components/ImageModal";
 
 export default function Home() {
   // const hello = api.example.hello.useQuery({ text: "from tRPC" });
@@ -19,6 +20,7 @@ export default function Home() {
   const { commandPosition } = useCommandPosition();
   const botResponse = useBot();
   const chatDom = useRef<HTMLDivElement>(null);
+  const { isModalShow } = useModal();
 
   useEffect(() => {
     if (chatDom.current) {
@@ -77,7 +79,7 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className="m-auto flex h-full flex-col justify-between ">
-        <Header />
+        <Header type="back" />
         <div className="h-full overflow-y-scroll" ref={chatDom}>
           <div className="mx-auto h-full max-w-3xl px-3 py-[14px]">
             {chat.length === 0 ? (
@@ -89,6 +91,7 @@ export default function Home() {
         </div>
         {chat.length > 0 ? <InputField chatDom={chatDom} /> : <StartButton />}
       </main>
+      {isModalShow && <ImageModal />}
     </>
   );
 }

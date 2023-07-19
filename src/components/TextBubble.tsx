@@ -1,4 +1,4 @@
-import { useChat } from "@/utils/ContextProvider";
+import { useChat, useClickedImage, useModal } from "@/utils/ContextProvider";
 import { IChat } from "@/utils/interfaces";
 import { markdownParser } from "@/utils/markdownParser";
 import { pushMessage } from "@/utils/pushMessage";
@@ -9,6 +9,8 @@ import { ReactMarkdown } from "react-markdown/lib/react-markdown";
 
 const TextBubble = ({ message, side, timestamp, image }: IChat) => {
   const { setChat } = useChat();
+  const { setIsModalShow } = useModal();
+  const { setClickedImage } = useClickedImage();
 
   const formattedTime = dayjs(timestamp).format("HH:mm");
   const imageRatioinPercentage =
@@ -33,6 +35,12 @@ const TextBubble = ({ message, side, timestamp, image }: IChat) => {
   //     return <p>{content}</p>;
   //   },
   // };
+
+  const handleImage = (e: React.MouseEvent<HTMLImageElement>) => {
+    // console.log((e.target as HTMLImageElement).src);
+    setIsModalShow(true);
+    image && setClickedImage({ url: image.url, ratio: image.ratio });
+  };
 
   return (
     <div
@@ -76,7 +84,8 @@ const TextBubble = ({ message, side, timestamp, image }: IChat) => {
                 src={image.url}
                 alt="sample"
                 fill
-                className="!static rounded-[17px] bg-vbackgroundhover object-cover object-top"
+                className="!static cursor-pointer rounded-[17px] bg-vbackgroundhover object-cover object-top"
+                onClick={handleImage}
               />
             </div>
           </div>
