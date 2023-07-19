@@ -1,6 +1,7 @@
 declare global {
   interface Window {
     clickedCommand: (e: HTMLSpanElement) => void;
+    clickedLocalLink: (e: HTMLSpanElement, text: string) => void;
   }
 }
 

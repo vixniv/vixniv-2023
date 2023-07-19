@@ -5,16 +5,19 @@ import { api } from "@/utils/api";
 import Header from "@/components/Header";
 import StartButton from "@/components/StartButton";
 import NoMessages from "@/components/NoMessages";
-import { useChat } from "@/utils/ContextProvider";
+import { useChat, useCommandPosition } from "@/utils/ContextProvider";
 import GroupBubble from "@/components/GroupBubble";
 import InputField from "@/components/InputField";
 import { useRef, useEffect } from "react";
 import { pushMessage } from "@/utils/pushMessage";
-import { botResponse } from "@/utils/botResponse";
+// import { botResponse } from "@/utils/botResponse";
+import useBot from "@/utils/useBot";
 
 export default function Home() {
   // const hello = api.example.hello.useQuery({ text: "from tRPC" });
   const { chat, setChat } = useChat();
+  const { commandPosition } = useCommandPosition();
+  const botResponse = useBot();
   const chatDom = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -50,14 +53,21 @@ export default function Home() {
 
   useEffect(() => {
     window.clickedCommand = (e: HTMLSpanElement) => {
-      console.log(e);
+      // console.log(e);
       const content = e.textContent;
       if (content && content[0] === "/" && /\/[a-zA-Z]+/g.test(content)) {
         pushMessage(setChat, content, "user");
-        botResponse(setChat, content);
+        botResponse(content);
       }
     };
-  }, []);
+  }, [commandPosition]);
+
+  useEffect(() => {
+    window.clickedLocalLink = (e: HTMLSpanElement, text: string) => {
+      pushMessage(setChat, text, "user");
+      botResponse(text);
+    };
+  }, [commandPosition]);
 
   return (
     <>

@@ -30,15 +30,15 @@ export const markdownParser = (
       }' onclick='clickedCommand(this)'>$1</span>`
     ) // command
     .replace(
+      /!\[(.+)\]\(([^\s]+)\)/g,
+      `<span class='cursor-pointer hover:underline' onclick='clickedLocalLink(this, "$2")'>$1</span>`
+    ) // local link
+    .replace(
       /\[(.+)\]\(([^\s]+)\)/g,
       `<a class='inline-flex items-center ${
         side === "user" ? "text-white" : "text-vblue"
       }' href='$2' target='_blank'>$1${svgtest}</a>`
     ) // link
-    .replace(
-      /!\[(.+)\]\(([^\s]+)\)/g,
-      `<span class='${side === "user" ? "text-white" : "text-vblue"}'>$1</span>`
-    ) // button
     .trim();
 
   // console.log(sanitazedStr);

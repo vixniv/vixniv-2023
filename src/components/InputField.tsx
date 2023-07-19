@@ -2,7 +2,8 @@ import React, { useRef, useState } from "react";
 import Arrow from "../../public/assets/arrow.svg";
 import { useChat } from "@/utils/ContextProvider";
 import { pushMessage } from "@/utils/pushMessage";
-import { botResponse } from "@/utils/botResponse";
+// import { botResponse } from "@/utils/botResponse";
+import useBot from "@/utils/useBot";
 
 const InputField = ({
   chatDom,
@@ -12,6 +13,7 @@ const InputField = ({
   const [message, setMessage] = useState("");
 
   const { setChat } = useChat();
+  const botResponse = useBot();
   const textAreaDom = useRef<HTMLTextAreaElement>(null);
 
   const handleTextAreaKeyDown = (
@@ -41,7 +43,7 @@ const InputField = ({
         textAreaDom.current.focus(); // this make page scroll on mobile when keyboard open, need solution!
       }
 
-      botResponse(setChat, message);
+      botResponse(message);
     }
   };
 

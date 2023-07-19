@@ -112,7 +112,7 @@ const TextBubble = ({ message, side, timestamp, image }: IChat) => {
             </span>
           )}
           <div
-            className={`absolute right-[14px] text-xs ${
+            className={`absolute right-[14px] select-none text-xs ${
               message
                 ? "bottom-[7px]"
                 : "bottom-[10px] rounded-[20px] bg-vbackgroundhover/50 px-1 text-white backdrop-blur-sm"
