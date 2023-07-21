@@ -79,7 +79,7 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className="m-auto flex h-full flex-col justify-between">
-        <Header type="back" />
+        <Header type="delete" />
         <div
           className="h-full overflow-x-hidden overflow-y-scroll"
           ref={chatDom}

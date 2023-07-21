@@ -8,7 +8,7 @@ const ImageModal = () => {
 
   return (
     <div className="absolute left-0 top-0 flex h-full w-full flex-col bg-white">
-      <Header type="close" />
+      <Header type="back" />
       <div className="flex-grow overflow-y-scroll">
         <div
           className="mx-auto max-w-3xl"

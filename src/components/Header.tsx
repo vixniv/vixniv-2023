@@ -1,14 +1,18 @@
 import React from "react";
 import Arrow from "../../public/assets/arrow.svg";
 import Image from "next/image";
-import { useModal } from "@/utils/ContextProvider";
+import { useChat, useModal } from "@/utils/ContextProvider";
 
 const Header = ({ type }: { type: string }) => {
   const { setIsModalShow } = useModal();
+  const { chat, setChat } = useChat();
 
   const handleBack = () => {
-    if (type === "close") {
+    if (type === "back") {
       setIsModalShow(false);
+    }
+    if (type === "delete") {
+      setChat([]);
     }
   };
 
@@ -16,10 +20,15 @@ const Header = ({ type }: { type: string }) => {
     <header className="mx-auto w-full max-w-3xl p-2">
       <div className="flex items-center justify-between">
         <div className="flex-1">
-          <button className="flex items-center" onClick={handleBack}>
+          <button
+            className={`flex items-center ${
+              chat.length === 0 && "disabled-button"
+            }`}
+            onClick={handleBack}
+          >
             <Arrow />
             <div className="ml-1 text-vblue">
-              {type === "close" ? "Back" : "Don't"}
+              {type === "back" ? "Back" : "Don't"}
             </div>
           </button>
         </div>
