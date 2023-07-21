@@ -31,7 +31,7 @@ const Header = ({ type }: { type: string }) => {
           <div className="relative h-10 w-10 rounded-full bg-vbackground">
             <Image
               src="/assets/vixnivpp.jpg"
-              alt="vixniv profile pic"
+              alt="vixniv profile picture"
               fill
               className="rounded-full"
             />

@@ -87,7 +87,7 @@ const TextBubble = ({ message, side, timestamp, image }: IChat) => {
               </div> */}
               <Image
                 src={image.url}
-                alt="sample"
+                alt="this is image"
                 fill
                 className="!static cursor-pointer rounded-[17px] bg-vbackgroundhover object-cover object-top"
                 onClick={handleImage}

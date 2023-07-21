@@ -22,7 +22,7 @@ const ImageModal = () => {
           >
             <Image
               src={clickedImage.url}
-              alt="sample"
+              alt="this is image"
               fill
               className="bg-vbackgroundhover"
             />
