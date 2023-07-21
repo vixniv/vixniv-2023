@@ -1,15 +1,10 @@
-import React, { useRef, useState } from "react";
+import { useRef, useState } from "react";
 import Arrow from "../../public/assets/arrow.svg";
 import { useChat } from "@/utils/ContextProvider";
 import { pushMessage } from "@/utils/pushMessage";
-// import { botResponse } from "@/utils/botResponse";
 import useBot from "@/utils/useBot";
 
-const InputField = ({
-  chatDom,
-}: {
-  chatDom: React.RefObject<HTMLDivElement>;
-}) => {
+const InputField = () => {
   const [message, setMessage] = useState("");
 
   const { setChat } = useChat();
@@ -53,7 +48,6 @@ const InputField = ({
         className="h-[44px] w-full resize-none rounded-[20px] bg-vbackground px-3 py-[10px] outline-none placeholder:text-vtext"
         placeholder="Message"
         maxLength={1000}
-        // rows={linebreak <= 6 ? linebreak : 6}
         value={message}
         onChange={handleTextAreaChange}
         onKeyDown={handleTextAreaKeyDown}

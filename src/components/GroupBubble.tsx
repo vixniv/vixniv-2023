@@ -1,4 +1,3 @@
-import React from "react";
 import DateBubble from "./DateBubble";
 import TextBubble from "./TextBubble";
 import { IChatGroup } from "@/utils/interfaces";

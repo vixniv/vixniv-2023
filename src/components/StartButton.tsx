@@ -1,8 +1,6 @@
 import { useChat } from "@/utils/ContextProvider";
-// import { botResponse } from "@/utils/botResponse";
 import { pushMessage } from "@/utils/pushMessage";
 import useBot from "@/utils/useBot";
-import React from "react";
 
 const StartButton = () => {
   const { setChat } = useChat();

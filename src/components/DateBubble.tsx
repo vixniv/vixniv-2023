@@ -1,5 +1,4 @@
 import { IChatGroup } from "@/utils/interfaces";
-import React from "react";
 
 const DateBubble = ({ date }: IChatGroup) => {
   return (

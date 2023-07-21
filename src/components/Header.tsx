@@ -1,4 +1,3 @@
-import React from "react";
 import Arrow from "../../public/assets/arrow.svg";
 import Image from "next/image";
 import { useChat, useModal } from "@/utils/ContextProvider";

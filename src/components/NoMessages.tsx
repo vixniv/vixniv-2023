@@ -1,5 +1,3 @@
-import React from "react";
-
 const NoMessages = () => {
   return (
     <div className="grid h-full place-items-center">

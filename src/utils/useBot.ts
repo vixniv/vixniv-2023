@@ -1,16 +1,14 @@
-import React, { useState } from "react";
 import { commands, workList } from "./data";
 import { pushMessage } from "./pushMessage";
 import { delay } from "./delay";
-import { IChatGroup } from "./interfaces";
 import { useChat, useCommandPosition } from "./ContextProvider";
 
 const useBot = () => {
   const { setChat } = useChat();
   const { commandPosition, setCommandPosition } = useCommandPosition();
 
+  // handler for bot response
   const botResponse = (text: string) => {
-    // console.log(commandPosition);
     if (text === "/back") {
       setCommandPosition("");
       return;
