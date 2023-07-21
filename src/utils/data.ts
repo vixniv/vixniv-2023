@@ -10,6 +10,14 @@ export const commands = [
     response: [
       {
         image: {
+          url: "/assets/1440x3400.png",
+          width: 1440,
+          ratio: 2.361111111111111,
+        },
+        message: ``,
+      },
+      {
+        image: {
           url: "/assets/patrick-say-hi.gif",
           width: 480,
           ratio: 0.75,

@@ -13,7 +13,7 @@ const Header = ({ type }: { type: string }) => {
   };
 
   return (
-    <header className="sticky top-0 z-10 mx-auto w-full max-w-3xl bg-white p-2">
+    <header className="mx-auto w-full max-w-3xl p-2">
       <div className="flex items-center justify-between">
         <div className="flex-1">
           <button className="flex items-center" onClick={handleBack}>

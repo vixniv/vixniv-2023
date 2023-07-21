@@ -7,19 +7,21 @@ const ImageModal = () => {
   const { clickedImage } = useClickedImage();
 
   return (
-    <div className="absolute left-0 top-0 w-full bg-white">
+    <div className="absolute left-0 top-0 flex h-full w-full flex-col bg-white">
       <Header type="close" />
-      <div className="mx-auto max-w-3xl px-2">
-        <div
-          className="imageContainer relative w-full"
-          style={{ paddingTop: `${clickedImage.ratio * 100}%` }}
-        >
-          <Image
-            src={clickedImage.url}
-            alt="sample"
-            fill
-            className="bg-vbackgroundhover"
-          />
+      <div className="flex-grow overflow-y-scroll">
+        <div className="mx-auto max-w-3xl">
+          <div
+            className="imageContainer relative w-full"
+            style={{ paddingTop: `${clickedImage.ratio * 100}%` }}
+          >
+            <Image
+              src={clickedImage.url}
+              alt="sample"
+              fill
+              className="bg-vbackgroundhover"
+            />
+          </div>
         </div>
       </div>
     </div>

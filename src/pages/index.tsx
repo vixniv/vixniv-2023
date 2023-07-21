@@ -78,10 +78,13 @@ export default function Home() {
         <meta name="description" content="Vixniv" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main className="m-auto flex h-full flex-col justify-between ">
+      <main className="m-auto flex h-full flex-col justify-between">
         <Header type="back" />
-        <div className="h-full overflow-y-scroll" ref={chatDom}>
-          <div className="mx-auto h-full max-w-3xl px-3 py-[14px]">
+        <div
+          className="h-full overflow-x-hidden overflow-y-scroll"
+          ref={chatDom}
+        >
+          <div className="mx-auto h-full max-w-3xl px-2 py-[14px] sm:translate-x-[3px]">
             {chat.length === 0 ? (
               <NoMessages />
             ) : (
