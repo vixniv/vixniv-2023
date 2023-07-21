@@ -39,7 +39,12 @@ const TextBubble = ({ message, side, timestamp, image }: IChat) => {
   const handleImage = (e: React.MouseEvent<HTMLImageElement>) => {
     // console.log((e.target as HTMLImageElement).src);
     setIsModalShow(true);
-    image && setClickedImage({ url: image.url, ratio: image.ratio });
+    image &&
+      setClickedImage({
+        url: image.url,
+        ratio: image.ratio,
+        width: image.width,
+      });
   };
 
   return (

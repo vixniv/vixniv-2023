@@ -20,17 +20,20 @@ const clickedImageContext = createContext<{
   clickedImage: {
     url: string;
     ratio: number;
+    width: number;
   };
   setClickedImage: React.Dispatch<
     React.SetStateAction<{
       url: string;
       ratio: number;
+      width: number;
     }>
   >;
 }>({
   clickedImage: {
     url: "",
     ratio: 0,
+    width: 0,
   },
   setClickedImage: () => "",
 });
@@ -42,6 +45,7 @@ const ContextProvider = ({ children }: { children: React.ReactNode }) => {
   const [clickedImage, setClickedImage] = useState({
     url: "",
     ratio: 0,
+    width: 0,
   });
 
   return (
