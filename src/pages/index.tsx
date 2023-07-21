@@ -48,7 +48,10 @@ export default function Home() {
     <>
       <Head>
         <title>Vixniv</title>
-        <meta name="description" content="Vixniv" />
+        <meta
+          name="description"
+          content="Hola! I'm Yoram, a.k.a Vixniv, a UX Designer and Software Engineer based in mostly sunny ☀ Jakarta, ID."
+        />
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className="m-auto flex h-full flex-col justify-between">
