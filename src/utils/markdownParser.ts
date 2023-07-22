@@ -8,23 +8,23 @@ export const markdownParser = (str: string, side: string) => {
   const sanitazedStr = DOMPurify.sanitize(str);
   const toHTML = sanitazedStr
     .replace(/</g, "&lt;") // escape html
-    .replace(/\*\*([^ ][\w ]+[^ ])\*\*/g, "<b>$1</b>") // bold
+    .replace(/\*\*([^ ][\w ]+[^ ])\*\*/g, "<b>$1</b>") // **bold**
     .replace(
       /(?<![\S])(\/[\w+]{3,})/g,
       `<span class='cursor-pointer hover:underline ${
         side === "user" ? "text-white" : "text-vblue"
       }' onclick='clickedCommand(this)'>$1</span>`
-    ) // command
+    ) // /command
     .replace(
-      /!\[(.+)\]\(([^\s]+)\)/g,
+      /!\[([^\]]+)\]\(([^\s]+)\)/g,
       `<span class='cursor-pointer hover:underline' onclick='clickedLocalLink(this, "$2")'>$1</span>`
-    ) // local link
+    ) // ![local link](www.example.com)
     .replace(
-      /\[(.+)\]\(([^\s]+)\)/g,
+      /\[([^\]]+)\]\(([^\s]+)\)/g,
       `<a class='inline-flex items-center ${
         side === "user" ? "text-white" : "text-vblue"
       }' href='$2' target='_blank'>$1${svgtest}</a>`
-    ) // link
+    ) // [link](www.example.com)
     .trim();
 
   return toHTML;
