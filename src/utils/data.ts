@@ -186,7 +186,7 @@ For more design and development works, you can check my [Dribbble](https://dribb
       },
       {
         image: noImage,
-        message: `My motivation to make this we actually to submit it to [godly.website](https://godly.website/)`,
+        message: `My motivation to make this web actually to submit it to [godly.website](https://godly.website/)`,
       },
       {
         image: noImage,
