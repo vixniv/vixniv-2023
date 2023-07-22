@@ -10,14 +10,6 @@ export const commands = [
     response: [
       {
         image: {
-          url: "/assets/1440x3400.png",
-          width: 1440,
-          ratio: 2.361111111111111,
-        },
-        message: ``,
-      },
-      {
-        image: {
           url: "/assets/patrick-say-hi.gif",
           width: 480,
           ratio: 0.75,
@@ -26,10 +18,11 @@ export const commands = [
       },
       {
         image: noImage,
-        message: `Hi, thank you for stopping by.
-You can explore this web by typing or clicking the commands below:
+        message: `Hi! thank you for stopping by ✨
+You can explore this web by **typing or clicking** the commands below:
 
 /help - to see the available commands
+/back - back to previous state
         
 /about - things about me
 /work - some of the works I've done
@@ -39,7 +32,61 @@ You can explore this web by typing or clicking the commands below:
 /stack - technology that I use
 /inspiration - web that I can see for my design reference
 /logs - progress of this web
-/credit - just look, but it doesn't really matter`,
+/credit - a little story of this web`,
+      },
+    ],
+  },
+  {
+    command: "/help",
+    response: [
+      {
+        image: noImage,
+        message: `these are the available commands:
+
+/help - to see the available commands
+/back - back to previous state
+        
+/about - things about me
+/work - some of the works I've done
+/contact - how to contact me
+
+/books - the books I have read
+/stack - technology that I use
+/inspiration - web that I can see for my design reference
+/logs - progress of this web
+/credit - a little story of this web`,
+      },
+    ],
+  },
+  {
+    command: "/back",
+    response: [
+      {
+        image: {
+          url: "/assets/i-am-back.gif",
+          width: 480,
+          ratio: 0.75,
+        },
+        message: ``,
+      },
+    ],
+  },
+  {
+    command: "/about",
+    response: [
+      {
+        image: {
+          url: "/assets/nice-to-meet-you.gif",
+          width: 320,
+          ratio: 0.7625,
+        },
+        message: ``,
+      },
+      {
+        image: noImage,
+        message: `It's a little strange to tell about myself without being in a conversation. but my name is Yoram, a.k.a Vixniv as my pseudonym. I am a UX Designer and Software Engineer based in mostly sunny ☀ Jakarta, ID. 
+        
+Currently I am designing and developing web for clients around the world. So if you have any offer, feel free to /contact me.`,
       },
     ],
   },
@@ -59,9 +106,11 @@ You can explore this web by typing or clicking the commands below:
     response: [
       {
         image: noImage,
-        message: `If you have questions or project offers, you can contact me at hello@vixniv.com.
-
-or if you want to follow me on twitter @vixniv even though I’m no longer use social media since pandemic.`,
+        message: `If you have questions or project offers, you can contact me at hello@vixniv.com`,
+      },
+      {
+        image: noImage,
+        message: `or if you want to follow me on twitter [@vixniv](https://twitter.com/vixniv) even though I’m no longer use social media since pandemic.`,
       },
     ],
   },
@@ -90,7 +139,7 @@ or if you want to follow me on twitter @vixniv even though I’m no longer use s
     response: [
       {
         image: noImage,
-        message: `These are the web that I think is really good to provide the best quality of design godly.website land-book.com awwwards.com uijar.com mobbin.com curated.design savee.it dribbble.com.`,
+        message: `These are the web that I think is really good to provide the best quality of design: [godly.website](https://godly.website/)  [land-book](https://land-book.com/)  [awwwards](https://awwwards.com/)  [uijar](https://uijar.com/)  [mobbin](https://mobbin.com/)  [curated.design](https://curated.design/)  [savee.it](https://savee.it/)  [dribbble](https://dribbble.com/).`,
       },
     ],
   },
@@ -108,7 +157,15 @@ or if you want to follow me on twitter @vixniv even though I’m no longer use s
     response: [
       {
         image: noImage,
-        message: `© Made in 2023 using T3 Stack to replace my old web, although I haven't used all the features yet. My motivation to make this we actually to submit it to godly.website hehe.`,
+        message: `© Made in 2023 using [T3 Stack](https://create.t3.gg/) to replace my old web, although I haven't used all the features yet.`,
+      },
+      {
+        image: noImage,
+        message: `My motivation to make this we actually to submit it to [godly.website](https://godly.website/)`,
+      },
+      {
+        image: noImage,
+        message: `😬😬`,
       },
     ],
   },
