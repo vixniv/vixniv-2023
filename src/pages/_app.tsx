@@ -9,6 +9,7 @@ import ContextProvider from "@/utils/ContextProvider";
 const inter = Inter({
   subsets: ["latin"],
   variable: "--font-inter",
+  display: "swap",
 });
 
 const MyApp: AppType<{ session: Session | null }> = ({
