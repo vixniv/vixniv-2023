@@ -9,12 +9,12 @@ const useBot = () => {
 
   // handler for bot response
   const botResponse = (text: string) => {
-    if (text === "/back") {
-      setCommandPosition("");
-      return;
-    }
+    // if (text === "/back") {
+    //   setCommandPosition("");
+    //   return;
+    // }
 
-    if (commandPosition === "/work") {
+    if (commandPosition === "/work" && text !== "/back") {
       const workIndex = workList.findIndex((el) => el.id === Number(text));
       if (workIndex !== -1) {
         workList[workIndex]?.response.forEach(
