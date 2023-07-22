@@ -5,6 +5,10 @@
   body {
     height: 100%;
   }
+
+  img, button, div, input, textarea, a {
+    -webkit-tap-highlight-color: transparent;
+  }
 }
 
 @tailwind components;
