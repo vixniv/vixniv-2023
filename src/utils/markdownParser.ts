@@ -9,12 +9,16 @@ export const markdownParser = (str: string, side: string) => {
   const toHTML = sanitazedStr
     .replace(/</g, "&lt;") // escape html
     .replace(/\*\*([^ ].+[^ ])\*\*/g, "<b>$1</b>") // **bold**
-    .replace(
-      /(?<![\S])(\/[\w+]{3,})/g,
-      `<span class='cursor-pointer hover:underline ${
+    .replace(/\/[\w+]{3,}/g, (match, idx, str) => {
+      const charBefore = str.substring(idx - 1, idx);
+
+      // if there is a character before the slash, don't replace
+      if (charBefore && /\S/.test(charBefore)) return match;
+
+      return `<span class='cursor-pointer hover:underline ${
         side === "user" ? "text-white" : "text-vblue"
-      }' onclick='clickedCommand(this)'>$1</span>`
-    ) // /command
+      }' onclick='clickedCommand(this)'>${match}</span>`;
+    }) // /command
     .replace(
       /!\[([^\]]+)\]\(([^\s]+)\)/g,
       `<span class='cursor-pointer hover:underline' onclick='clickedLocalLink(this, "$2")'>$1</span>`
