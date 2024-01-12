@@ -8,7 +8,7 @@ export const markdownParser = (str: string, side: string) => {
   const sanitazedStr = DOMPurify.sanitize(str);
   const toHTML = sanitazedStr
     .replace(/</g, "&lt;") // escape html
-    .replace(/\*\*([^ ].+[^ ])\*\*/g, "<b>$1</b>") // **bold**
+    .replace(/\*\*([^\s].+?[^\s])\*\*/g, "<b>$1</b>") // **bold**
     .replace(/\/[\w+]{3,}/g, (match, idx, str) => {
       const charBefore = str.substring(idx - 1, idx);
 

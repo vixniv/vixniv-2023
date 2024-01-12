@@ -14,7 +14,7 @@ const useBot = () => {
     //   return;
     // }
 
-    if (commandPosition === "/work" && text !== "/back") {
+    if (commandPosition === "/work" && text !== "/back" && text !== "/work") {
       const workIndex = workList.findIndex((el) => el.id === Number(text));
       if (workIndex !== -1) {
         workList[workIndex]?.response.forEach(

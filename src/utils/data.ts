@@ -18,8 +18,8 @@ export const commands = [
       },
       {
         image: noImage,
-        message: `Hi! thank you for stopping by ✨
-You can explore this web by **typing or clicking** the commands below:
+        message: `Hi! thank you for stopping by 🍪
+You can explore this web by **typing** or **clicking** the commands below:
 
 /help - to see the available commands
 /back - back to previous state
@@ -84,9 +84,9 @@ You can explore this web by **typing or clicking** the commands below:
       },
       {
         image: noImage,
-        message: `It's a little strange to tell about myself without being in a conversation. but my name is Yoram, a.k.a Vixniv as my pseudonym. I am a UX Designer and Software Engineer based in mostly sunny ☀ Jakarta, ID. 
+        message: `It's a little strange to tell about myself without being in a conversation. But my name is Yoram, a.k.a Vixniv as my pseudonym. I am a UX Designer and Software Engineer based in mostly sunny ☀ Jakarta, ID. 
         
-Currently I am designing and developing web for clients around the world. So if you have any offer, feel free to /contact me.`,
+Currently I am designing and developing web for clients around the world. So if you have any offer, feel free to /contact me`,
       },
     ],
   },
@@ -108,6 +108,10 @@ Currently I am designing and developing web for clients around the world. So if 
 For more design and development works, you can check my [Dribbble](https://dribbble.com/vixniv), [Savee.it](https://savee.it/vixniv) or [Github](https://github.com/vixniv)
 `,
       },
+      {
+        image: noImage,
+        message: `If you have done seeing my works, use command /back to run another commands`,
+      },
     ],
   },
   {
@@ -119,7 +123,7 @@ For more design and development works, you can check my [Dribbble](https://dribb
       },
       {
         image: noImage,
-        message: `or if you want to follow me on twitter [@vixniv](https://twitter.com/vixniv) even though I’m no longer use social media since pandemic.`,
+        message: `or you just want to follow me on [X (twitter)](https://twitter.com/vixniv) even though I&apos;m no longer use social media since pandemic`,
       },
     ],
   },
@@ -155,7 +159,7 @@ For more design and development works, you can check my [Dribbble](https://dribb
     response: [
       {
         image: noImage,
-        message: `This is the tech stack that I use: Javascript, Typescript, ReactJs, Redux, NextJs, MongoDB, PostgreSQL, GraphQL, NodeJs, ExpressJs, HTML, CSS, Tailwinds, Git, Golang (currently learning).`,
+        message: `This is the tech stack that I use: Javascript, Typescript, ReactJs, Redux, NextJs, MongoDB, PostgreSQL, GraphQL, NodeJs, ExpressJs, HTML, CSS, Tailwinds, Git, Golang (currently learning)`,
       },
     ],
   },
@@ -164,7 +168,7 @@ For more design and development works, you can check my [Dribbble](https://dribb
     response: [
       {
         image: noImage,
-        message: `These are the web that I think is really good to provide the best quality of design: [godly.website](https://godly.website/)  [land-book](https://land-book.com/)  [awwwards](https://awwwards.com/)  [uijar](https://uijar.com/)  [mobbin](https://mobbin.com/)  [curated.design](https://curated.design/)  [savee.it](https://savee.it/)  [dribbble](https://dribbble.com/).`,
+        message: `These are the web that I think is really good to provide the best quality of design: [godly.website](https://godly.website/)  [land-book](https://land-book.com/)  [awwwards](https://awwwards.com/)  [uijar](https://uijar.com/)  [mobbin](https://mobbin.com/)  [curated.design](https://curated.design/)  [savee.it](https://savee.it/)  [dribbble](https://dribbble.com/)`,
       },
     ],
   },
@@ -173,7 +177,8 @@ For more design and development works, you can check my [Dribbble](https://dribb
     response: [
       {
         image: noImage,
-        message: `23/07/2023 - The first deployed of the web`,
+        message: `23/07/2023 - The first deployed of the web
+12/01/2024 - Touched the code again because I found some bugs`,
       },
     ],
   },
@@ -182,11 +187,11 @@ For more design and development works, you can check my [Dribbble](https://dribb
     response: [
       {
         image: noImage,
-        message: `© Made in 2023 using [T3 Stack](https://create.t3.gg/) to replace my old web, although I haven't used all the features yet.`,
+        message: `© Made in 2023 using [T3 Stack](https://create.t3.gg/) to replace my old web, although I haven't used all the features yet 😭`,
       },
       {
         image: noImage,
-        message: `My motivation to make this web actually to submit it to [godly.website](https://godly.website/)`,
+        message: `My motivation to make this web was actually to submit it to the website on /inspiration`,
       },
       {
         image: noImage,
