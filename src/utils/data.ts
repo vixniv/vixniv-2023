@@ -168,7 +168,7 @@ For more design and development works, you can check my [Dribbble](https://dribb
     response: [
       {
         image: noImage,
-        message: `These are the web that I think is really good to provide the best quality of design: [godly.website](https://godly.website/)  [land-book](https://land-book.com/)  [awwwards](https://awwwards.com/)  [uijar](https://uijar.com/)  [mobbin](https://mobbin.com/)  [curated.design](https://curated.design/)  [savee.it](https://savee.it/)  [dribbble](https://dribbble.com/)`,
+        message: `These are the web that I think are really good at providing the best quality of design: [godly.website](https://godly.website/)  [land-book](https://land-book.com/)  [awwwards](https://awwwards.com/)  [uijar](https://uijar.com/)  [mobbin](https://mobbin.com/)  [curated.design](https://curated.design/)  [savee.it](https://savee.it/)  [dribbble](https://dribbble.com/)  [maxibestof](https://maxibestof.one/)  [lapa.ninja](https://lapa.ninja/)`,
       },
     ],
   },
